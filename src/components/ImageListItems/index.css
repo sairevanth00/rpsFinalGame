@@ -1,0 +1,13 @@
+.choicesItem {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.choicesImg {
+  height: 140px;
+  width: 140px;
+}
+.imgBtn {
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
