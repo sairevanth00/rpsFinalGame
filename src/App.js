@@ -49,66 +49,85 @@ class App extends Component {
   }
 
   getOnclickImageItemUrl = image => {
-    const {userSelectedImgUrl, randomGeneratedImgUrl} = this.state
     const randomNum = Math.floor(Math.random() * choicesList.length)
-    const randomImg = choicesList[randomNum].image
+
     this.setState({
       isGameStart: true,
-      userSelectedImgUrl: image,
-      randomGeneratedImgUrl: randomImg,
     })
+
     if (
-      userSelectedImgUrl === rockImgUrl &&
-      randomGeneratedImgUrl === scissorImgUrl
+      image === rockImgUrl &&
+      choicesList[randomNum].image === scissorImgUrl
     ) {
-      this.setState({userWonLossTxt: 'YOU WON'})
+      this.setState({
+        userWonLossTxt: 'YOU WON',
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
       this.setState(prevState => ({score: prevState.score + 1}))
       console.log(this.userWonLossTxt)
     } else if (
-      userSelectedImgUrl === scissorImgUrl &&
-      randomGeneratedImgUrl === rockImgUrl
+      image === scissorImgUrl &&
+      choicesList[randomNum].image === rockImgUrl
     ) {
-      this.setState({userWonLossTxt: 'YOU LOSE'})
+      this.setState({
+        userWonLossTxt: 'YOU LOSE',
+
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
       this.setState(prevState => ({score: prevState.score - 1}))
     } else if (
-      userSelectedImgUrl === scissorImgUrl &&
-      randomGeneratedImgUrl === paperImgUrl
+      image === scissorImgUrl &&
+      choicesList[randomNum].image === paperImgUrl
     ) {
-      this.setState({userWonLossTxt: 'YOU WON'})
+      this.setState({
+        userWonLossTxt: 'YOU WON',
+
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
       this.setState(prevState => ({score: prevState.score + 1}))
     } else if (
-      userSelectedImgUrl === paperImgUrl &&
-      randomGeneratedImgUrl === scissorImgUrl
+      image === paperImgUrl &&
+      choicesList[randomNum].image === scissorImgUrl
     ) {
-      this.setState({userWonLossTxt: 'YOU LOSE'})
+      this.setState({
+        userWonLossTxt: 'YOU LOSE',
+
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
       this.setState(prevState => ({score: prevState.score - 1}))
     } else if (
-      userSelectedImgUrl === paperImgUrl &&
-      randomGeneratedImgUrl === rockImgUrl
+      image === paperImgUrl &&
+      choicesList[randomNum].image === rockImgUrl
     ) {
-      this.setState({userWonLossTxt: 'YOU WON'})
+      this.setState({
+        userWonLossTxt: 'YOU WON',
+
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
       this.setState(prevState => ({score: prevState.score + 1}))
     } else if (
-      userSelectedImgUrl === rockImgUrl &&
-      randomGeneratedImgUrl === paperImgUrl
+      image === rockImgUrl &&
+      choicesList[randomNum].image === paperImgUrl
     ) {
-      this.setState({userWonLossTxt: 'YOU LOSE'})
+      this.setState({
+        userWonLossTxt: 'YOU LOSE',
+
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
       this.setState(prevState => ({score: prevState.score - 1}))
-    } else if (
-      userSelectedImgUrl === scissorImgUrl &&
-      randomGeneratedImgUrl === scissorImgUrl
-    ) {
-      this.setState({userWonLossTxt: 'IT IS DRAW'})
-    } else if (
-      userSelectedImgUrl === rockImgUrl &&
-      randomGeneratedImgUrl === rockImgUrl
-    ) {
-      this.setState({userWonLossTxt: 'IT IS DRAW'})
-    } else if (
-      userSelectedImgUrl === paperImgUrl &&
-      randomGeneratedImgUrl === paperImgUrl
-    ) {
-      this.setState({userWonLossTxt: 'IT IS DRAW'})
+    } else if (image === choicesList[randomNum].image) {
+      this.setState({
+        userWonLossTxt: 'IT IS DRAW',
+
+        userSelectedImgUrl: image,
+        randomGeneratedImgUrl: choicesList[randomNum].image,
+      })
     }
   }
 
@@ -122,25 +141,25 @@ class App extends Component {
     return (
       <div className="resultsCon">
         <div className="resultsImgMainCon">
-          <div className="resultsImgCon">
-            <p className="heading">YOU</p>
+          <div className="userImgCon">
+            <p className="user-heading">YOU</p>
             <img
               src={userSelectedImgUrl}
               alt="your choice"
-              className="resultImg"
+              className="userImg"
             />
           </div>
-          <div className="resultsImgCon">
-            <p className="heading">OPPONENT</p>
+          <div className="randomImgCon">
+            <p className="random-heading">OPPONENT</p>
             <img
               src={randomGeneratedImgUrl}
               alt="opponent choice"
-              className="resultImg"
+              className="randomImg"
             />
           </div>
         </div>
         <div className="playAgainCon">
-          <h1 className="resultFinalTxt">{userWonLossTxt}</h1>
+          <p className="resultFinalTxt">{userWonLossTxt}</p>
           <div>
             <button
               className="playAgainBtn"
@@ -184,8 +203,9 @@ class App extends Component {
               </h1>
             </div>
             <div className="scoreCon">
-              <p className="scoreTxt">Score</p>
-              <p className="scoreNumTxt">{score}</p>
+              <p className="rps-scoreTxt">Score</p>
+
+              <p className="rps-scoreNumTxt">{score}</p>
             </div>
           </div>
           {isGameStart ? this.renderGameResults() : this.renderInitialUi()}

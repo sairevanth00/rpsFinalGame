@@ -40,33 +40,33 @@ body {
 }
 .txt {
   margin-bottom: 3px;
+  padding: 30px 0px 40px 20px;
 }
 .scoreCon {
   background-color: #ffffff;
-  padding: 10px;
+  margin: 10px 10px 10px 10px;
+  width: 130px;
+  height: 90%;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 10px 10px 10px;
-  width: 100px;
-  height: 90%;
-  border-radius: 15px;
-  padding: 50px;
 }
-.scoreTxt {
+.rps-scoreTxt {
   color: #223a5f;
-  font-family: 'Bree Serif';
-  padding-top: 60px;
+  font-family: 'Roboto';
   font-size: 25px;
+  text-align: center;
+  padding-top: 40px;
 }
-.scoreNumTxt {
+.rps-scoreNumTxt {
   font-family: 'Roboto';
   color: #223a5f;
-
   font-weight: bold;
   font-size: 35px;
-  padding-bottom: 50px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 .choicesListCon {
   display: flex;
@@ -89,11 +89,17 @@ body {
   border-radius: 8px;
   cursor: pointer;
   margin: 0px 20px 20px;
+  font-weight: 500;
 }
-.resultImg {
+.userImg {
   height: 140px;
   width: 140px;
-  margin: 10px;
+  margin-right: 50px;
+}
+.randomImg {
+  height: 140px;
+  width: 140px;
+  margin-left: 50px;
 }
 .resultsCon {
   display: flex;
@@ -101,23 +107,38 @@ body {
   justify-content: center;
   align-items: center;
 }
-.heading {
+.user-heading {
   color: #ffffff;
   font-weight: 500;
+  margin-right: 50px;
+}
+.random-heading {
+  color: #ffffff;
+  font-weight: 500;
+  margin-left: 50px;
 }
 .resultsImgMainCon {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 50px 50px 0px 50px;
 }
-.resultsImgCon {
+.userImgCon {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 50px;
+}
+.randomImgCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
 }
 .resultFinalTxt {
+  font-size: 30px;
   color: #ffffff;
   font-family: 'Roboto';
 }
@@ -128,6 +149,8 @@ body {
   border: 0px;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: 500;
+  font-family: 'Bree Serif';
 }
 .resultsImgCon {
   display: flex;
@@ -160,7 +183,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: #f0ecec;
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
@@ -191,6 +214,8 @@ body {
   padding: 2px;
   padding-bottom: 0px;
   margin-bottom: 4px;
+  border: 0px;
+  background-color: #eeeaead2;
 }
 .rules-button {
   margin: 30px;
@@ -198,4 +223,6 @@ body {
   border-radius: 5px;
   border: 0px;
   cursor: pointer;
+  font-family: 'Bree Serif';
+  font-weight: 500;
 }
